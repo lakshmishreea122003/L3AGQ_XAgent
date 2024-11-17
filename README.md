@@ -1,7 +1,7 @@
 # L3AGQ_XAgent
 
 ## Objective
-The goal of this project is to replace the existing Langchain REACT Agent with XAgent in the L3AGI project. 
+The goal of this project is to replace the existing LangChain REACT Agent with XAgent in the L3AGI project, ensuring that XAgent works seamlessly with all existing components, just as the LangChain REACT Agent did.
 
 ## Approach
 ### Dependencies
