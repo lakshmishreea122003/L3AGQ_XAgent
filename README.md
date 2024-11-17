@@ -23,7 +23,7 @@ The goal of this project is to replace the existing Langchain REACT Agent with X
   from xagent import XAgent
   from xagent.config import XAgentConfig
   ```
-- Initialized XAgent with XAgentConfig for configurations and executed it using agent.get_executor().
+- Initialized XAgent with XAgentConfig for configurations.
   ```
   xagent_config = XAgentConfig(
                 llm=llm,
@@ -36,4 +36,28 @@ The goal of this project is to replace the existing Langchain REACT Agent with X
   agent = XAgent(xagent_config)
   agent_executor = agent.get_executor()
   ```
+- Replaced Langchain’s AgentExecutor with XAgent’s direct execution flow using XAgent.run().
+
+### Changes in dialogue_agent_with_tools.py
+- The dependency added is ``` from xagent import XAgent ```.
+- Initialized XAgent
+  ```
+  agent = XAgent(
+                tools=tools,
+                llm=llm,
+                agent_kwargs={
+                    "system_message": system_message,
+                    "output_parser": ConvoOutputParser(),
+                },
+            )
+  ```
+
+
+
+
+
+
+
+
+  
 
