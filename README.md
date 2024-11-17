@@ -56,19 +56,12 @@ The goal of this project is to replace the existing LangChain REACT Agent with X
 - Implemented the agent_factory() method for XAgent.
   ```
   def agent_factory():
-    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-    tools = get_tools(["SerpGoogleSearch"])
-
-    return XAgent(
-        tools=tools,
-        llm=llm,
-        agent_kwargs={
-            "system_message": system_message,
-            "output_parser": ConvoOutputParser(),
-        },
-        max_iterations=5,
+    config = XAgentConfig(
+        llm=ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"),
+        tools=get_tools(["SerpGoogleSearch"]),
+        verbose=True
     )
-  agent = agent_factory()
+    return XAgent(config)
   ```
 
   ### Challenges
