@@ -39,7 +39,7 @@ The goal of this project is to replace the existing Langchain REACT Agent with X
 - Replaced Langchain’s AgentExecutor with XAgent’s direct execution flow using XAgent.run().
 
 ### Changes in dialogue_agent_with_tools.py
-- The dependency added is ``` from xagent import XAgent ```.
+- The imports added is ``` from xagent import XAgent ```.
 - Initialized XAgent
   ```
   agent = XAgent(
@@ -70,6 +70,18 @@ The goal of this project is to replace the existing Langchain REACT Agent with X
     )
   agent = agent_factory()
   ```
+
+  ### Challenges
+  - Compatibility: Updating the code to align with XAgent requirements considering XAgent requires different initialization parameters and configurations.
+  -  Dependencies: New dependencies had to be installed for XAgent, which I was unaware of. Replacing the Langchain REACT Agent dependencies with XAgent dependencies was challenging to figure out.
+  -  Testing: Ensuring XAgent worked seamlessly with all existing components and learning to test the project using pytest was another challenging factor for me.
+
+### Observations
+- Transition from Langchain React Agent to XAgent was a straightforward approach with minimal changes required to be done in the code base.
+- XAgent is easy to use and efficient considering the fact that it is more modular and flexible compaired to Langchain REACT Agent.
+
+### Conclusion
+Replacement of Langchain REACT Agent with XAgent into the L3AGI framework was successful. This process involved removing the Langchain REACT Agent dependencies and its initialization. Then replacing it with XAgent required dependencies, initialization of XAgent, seamless component integration and testing.
 
 
 
