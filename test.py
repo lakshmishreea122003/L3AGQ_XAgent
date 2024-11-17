@@ -2,24 +2,18 @@
 from langchain.smith import RunEvalConfig, run_on_dataset
 from langchain_community.chat_models import ChatOpenAI
 from langsmith import Client
-from xagent import XAgent  # Import XAgent
+from xagent import XAgent  
+from xagent.config import XAgentConfig
 
 
 def agent_factory():
-    # Replace with XAgent initialization
-    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-    tools = get_tools(["SerpGoogleSearch"])
-
-    return XAgent(
-        tools=tools,
-        llm=llm,
-        agent_kwargs={
-            "system_message": system_message,
-            "output_parser": ConvoOutputParser(),
-        },
-        max_iterations=5,
+    config = XAgentConfig(
+        llm=ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"),
+        tools=get_tools(["SerpGoogleSearch"]),
+        verbose=True
     )
-
+    return XAgent(config)
+    
 agent = agent_factory()
 
 client = Client()
